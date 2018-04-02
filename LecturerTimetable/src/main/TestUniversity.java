@@ -12,7 +12,6 @@ public class TestUniversity {
 
     public static void main(String[] args) {
 
-        UniversityGui universityGui;
         University university = new University("UoL Online");
         
         university.addPerson("First1", "Last1");
@@ -35,13 +34,14 @@ public class TestUniversity {
         // university.printStudents();
         
         // test whether all teachers are returned
-        List<Teacher> teacher = new ArrayList();
-        teacher = university.getTeacher();
-        for (Teacher eachTeacher : teacher) {
-        	System.out.println(eachTeacher);
-        }
+        //List<Teacher> teacher = new ArrayList();
+        //teacher = university.getTeacher();
+        //for (Teacher eachTeacher : teacher) {
+        //	System.out.println(eachTeacher);
+        //}
         
-        // UniversityGui.startUniversity(university);
+                
+        UniversityGui.startUniversity(university);
     }
 
 }
