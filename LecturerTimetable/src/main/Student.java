@@ -22,5 +22,19 @@ public class Student extends Person {
         return super.toString() + " " + this.studentId + " " + this.semester;
     }
 
-    
+	public String getStudentId() {
+		return studentId;
+	}
+
+	public void setStudentId(String studentId) {
+		this.studentId = studentId;
+	}
+
+	public int getSemester() {
+		return semester;
+	}
+
+	public void setSemester(int semester) {
+		this.semester = semester;
+	}
 }

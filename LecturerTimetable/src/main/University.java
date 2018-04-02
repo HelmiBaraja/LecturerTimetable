@@ -34,6 +34,47 @@ public class University {
         Teacher teacher = new Teacher(aFirstName, aLastName, aEmplyeeId, aFunction);
         persons.add(teacher);
     }
+
+    // return a new list because there should be no reference
+    // to the internal list
+    // to-do - check immutable list
+    public List<Person> getPersons() {
+    	List<Person> persons = new ArrayList();
+    	
+        for(Person eachPerson : persons) {
+            
+        	persons.add(eachPerson);
+        }
+        return persons;
+    }
+
+    
+    public List<Student> getStudents() {
+    	List<Student> students = new ArrayList();
+    	
+        for(Person eachPerson : persons) {
+            
+            if (eachPerson instanceof Student) {
+                students.add((Student) eachPerson);
+            }
+        }
+
+        return students;
+    }
+    
+
+    public List<Teacher> getTeacher() {
+    	List<Teacher> teacher = new ArrayList();
+    	
+        for(Person eachPerson : persons) {
+            
+            if (eachPerson instanceof Teacher) {
+                teacher.add((Teacher) eachPerson);
+            }
+        }
+
+        return teacher;
+    }
     
     public void printPersons() {
         for(Person eachPerson : persons) {
@@ -60,7 +101,14 @@ public class University {
                 System.out.println(eachPerson);
             }
         }
-        
     }
 
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+    
 }

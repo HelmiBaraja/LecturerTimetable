@@ -1,5 +1,8 @@
 package main;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * 
  * @author ansgar.goeb
@@ -31,8 +34,14 @@ public class TestUniversity {
         // university.printTeacher();
         // university.printStudents();
         
-        UniversityGui.startUniversity(university);
-
+        // test whether all teachers are returned
+        List<Teacher> teacher = new ArrayList();
+        teacher = university.getTeacher();
+        for (Teacher eachTeacher : teacher) {
+        	System.out.println(eachTeacher);
+        }
+        
+        // UniversityGui.startUniversity(university);
     }
 
 }
