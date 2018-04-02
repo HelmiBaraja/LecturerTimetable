@@ -1,4 +1,4 @@
-package main;
+package exceptions;
 
 public class WrongActualParameterException extends UException{
 
