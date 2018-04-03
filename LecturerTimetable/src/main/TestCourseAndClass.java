@@ -1,8 +1,9 @@
 package main;
 
+import main.ClassModel.Size;
 import misc.Util;
 
-public class TestCourse {
+public class TestCourseAndClass {
 
     public static void main(String[] args) {
 
@@ -17,5 +18,17 @@ public class TestCourse {
     		Util.parseDate("2017-06-12"), "CD233"));
     
     course.printCourses();
+    
+    
+ 	Class clss  = new Class();
+ 	
+ 	clss.addClassRoom(new ClassModel("13A", Size.BIG));
+ 	clss.addClassRoom(new ClassModel("23B", Size.SMALL));
+ 	clss.addClassRoom(new ClassModel("1B", Size.MEDIUM));
+
+ 	
+    clss.printClasses();
+    
+    
     }
 }
