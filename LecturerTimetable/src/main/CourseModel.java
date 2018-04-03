@@ -17,6 +17,7 @@ public class CourseModel {
 		this.code = code;
 	}
 	private String name;
+	private int id;
 	public String getName() {
 		return name;
 	}
@@ -46,6 +47,12 @@ public class CourseModel {
 	}
 	public void setOnlineCourse(boolean isOnlineCourse) {
 		this.isOnlineCourse = isOnlineCourse;
+	}
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
 	}
 	private Date startDate;
 	private Date endDate;

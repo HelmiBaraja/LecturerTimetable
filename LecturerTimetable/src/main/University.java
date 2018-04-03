@@ -13,7 +13,8 @@ public class University {
 	// use a List because the guarantee to provide a unique list
 	// is ensured by the user-interface
 	private List<Person> persons = new ArrayList<Person>();
-
+	private Course course;
+	
 	public University(String aName) {
 		this.name = aName;
 	}
@@ -158,4 +159,11 @@ public class University {
 		this.name = name;
 	}
 
+	public Course getCourses() {
+		return course;
+	}
+
+	public void setCourse(Course course) {
+		this.course = course;
+	}
 }
