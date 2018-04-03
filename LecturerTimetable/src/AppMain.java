@@ -1,3 +1,4 @@
+import exceptions.WrongActualParameterException;
 import main.Course;
 import main.CourseModel;
 import main.University;
@@ -20,10 +21,16 @@ public class AppMain {
 		university.addTeacher("TFirst3", "TLast3", "3333", "Prof. Medicine");
 		university.addTeacher("TFirst4", "TLast4", "4444", "Prof. Physics");
 
-		university.addStudent("SFirst1", "SLast1", "S1111", 1);
-		university.addStudent("SFirst2", "SLast2", "S2222", 2);
-		university.addStudent("SFirst3", "SLast3", "S3333", 3);
-		university.addStudent("SFirst4", "SLast4", "S4444", 2);
+		try {
+			university.addStudent("SFirst1", "SLast1", "S1111", 1);
+			university.addStudent("SFirst2", "SLast2", "S2222", 2);
+			university.addStudent("SFirst3", "SLast3", "S3333", 3);
+			university.addStudent("SFirst4", "SLast4", "S4444", 2);
+			
+		} catch (WrongActualParameterException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 
 	 	Course course  = new Course();
 	    course.addOfflineCourse(new CourseModel("Object Oriented Programming", Util.parseDate("2017-05-12"), 

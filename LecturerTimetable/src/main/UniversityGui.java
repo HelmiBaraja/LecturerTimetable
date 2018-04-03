@@ -6,6 +6,8 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.SwingUtilities;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+
 import java.awt.event.ComponentAdapter;
 import java.awt.event.ComponentEvent;
 import java.awt.event.MouseAdapter;
@@ -17,6 +19,9 @@ import java.awt.event.ActionEvent;
 import javax.swing.JTable;
 import javax.swing.JScrollPane;
 import javax.swing.table.DefaultTableModel;
+
+import exceptions.StudentNotFoundException;
+import exceptions.WrongActualParameterException;
 
 /**
  * @author ansgar.goeb
@@ -169,22 +174,47 @@ public class UniversityGui {
 
 				if (studentPersonId.getText().isEmpty()) {
 
-					university.addStudent(studentFirstName.getText(), studentLastName.getText(), studentId.getText(),
-							Integer.parseInt(semester.getText()));
+					try {
+
+						university.addStudent(studentFirstName.getText(), studentLastName.getText(), studentId.getText(),
+								Integer.parseInt(semester.getText()));
+
+						studentPersonId.setText(null);
+						studentFirstName.setText(null);
+						studentLastName.setText(null);
+						studentId.setText(null);
+						semester.setText(null);
+					
+					} catch (NumberFormatException | WrongActualParameterException e) {
+						
+						JOptionPane.showMessageDialog(null,"one of the input parameter is not filled");
+					}
+				
+				
 				} else {
 
-					Student student = university.getStudent(studentPersonId.getText());
-					student.setFirstName(studentFirstName.getText());
-					student.setLastName(studentLastName.getText());
-					student.setSemester(Integer.valueOf(semester.getText()));
-					student.setStudentId(studentId.getText());
-				}
+					Student student;
+					try {
+						student = university.getStudent(studentPersonId.getText());
+						
+						student.setFirstName(studentFirstName.getText());
+						student.setLastName(studentLastName.getText());
+						student.setSemester(Integer.valueOf(semester.getText()));
+						student.setStudentId(studentId.getText());
+						
+						studentPersonId.setText(null);
+						studentFirstName.setText(null);
+						studentLastName.setText(null);
+						studentId.setText(null);
+						semester.setText(null);
 
-				studentPersonId.setText(null);
-				studentFirstName.setText(null);
-				studentLastName.setText(null);
-				studentId.setText(null);
-				semester.setText(null);
+					
+					} catch (StudentNotFoundException e) {
+
+						JOptionPane.showMessageDialog(null,"Student could not be found");
+						e.printStackTrace();
+					}
+				}
 
 				fillStudentsTable();
 			}
@@ -195,13 +225,23 @@ public class UniversityGui {
 		JButton studentBtnDelete = new JButton("delete");
 		studentBtnDelete.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				university.deleteStudent(studentPersonId.getText());
-				studentPersonId.setText(null);
-				studentFirstName.setText(null);
-				studentLastName.setText(null);
-				studentId.setText(null);
-				semester.setText(null);
-				fillStudentsTable();
+				
+				
+				try {
+				
+					university.deleteStudent(studentPersonId.getText());
+					studentPersonId.setText(null);
+					studentFirstName.setText(null);
+					studentLastName.setText(null);
+					studentId.setText(null);
+					semester.setText(null);
+					fillStudentsTable();
+				
+				} catch (StudentNotFoundException e) {
+
+					JOptionPane.showMessageDialog(null,"Student could not be found");
+					e.printStackTrace();
+				}
 			}
 		});
 		studentBtnDelete.setBounds(54, 346, 89, 23);
@@ -272,13 +312,20 @@ public class UniversityGui {
 
 	private void updateStudentsDetail(String aId) {
 
-		Student student = university.getStudent(aId);
+		try {
 
-		studentPersonId.setText(student.getId());
-		studentFirstName.setText(student.getFirstName());
-		studentLastName.setText(student.getLastName());
-		studentId.setText(student.getStudentId());
-		semester.setText(String.valueOf(student.getSemester()));
+			Student student = university.getStudent(aId);
+			studentPersonId.setText(student.getId());
+			studentFirstName.setText(student.getFirstName());
+			studentLastName.setText(student.getLastName());
+			studentId.setText(student.getStudentId());
+			semester.setText(String.valueOf(student.getSemester()));
+
+		} catch (StudentNotFoundException e) {
+
+			JOptionPane.showMessageDialog(null,"Student could not be located for update");
+			e.printStackTrace();
+		}
 	}
 
 	// ***********************************************************************************
