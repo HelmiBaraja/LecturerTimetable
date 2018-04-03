@@ -285,6 +285,10 @@ public class UniversityGui {
 
 		initializeUniversityTab();
 		initializeStudentsTab();
+		
+		CourseTab courseTab = new CourseTab();
+		courseTab.initializeCourseTab(tabbedPane, university);
+		
 	}
 
 	// ***********************************************************************************
