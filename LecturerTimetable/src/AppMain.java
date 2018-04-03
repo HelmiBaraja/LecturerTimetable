@@ -17,10 +17,10 @@ public class AppMain {
 		university.addTeacher("TFirst3", "TLast3", "3333", "Prof. Medicine");
 		university.addTeacher("TFirst4", "TLast4", "4444", "Prof. Physics");
 
-		university.addStudent("SFrist1", "SLast1", "S1111", 1);
-		university.addStudent("SFrist2", "SLast2", "S2222", 2);
-		university.addStudent("SFrist3", "SLast3", "S3333", 3);
-		university.addStudent("SFrist4", "SLast4", "S4444", 2);
+		university.addStudent("SFirst1", "SLast1", "S1111", 1);
+		university.addStudent("SFirst2", "SLast2", "S2222", 2);
+		university.addStudent("SFirst3", "SLast3", "S3333", 3);
+		university.addStudent("SFirst4", "SLast4", "S4444", 2);
 
 		UniversityGui.startUniversity(university);
 	}

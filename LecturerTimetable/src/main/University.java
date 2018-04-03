@@ -12,7 +12,7 @@ public class University {
 
 	// use a List because the guarantee to provide a unique list
 	// is ensured by the user-interface
-	private List<Person> persons = new ArrayList();
+	private List<Person> persons = new ArrayList<Person>();
 
 	public University(String aName) {
 		this.name = aName;
@@ -60,7 +60,7 @@ public class University {
 	}
 
 	public List<Person> getPersons() {
-		List<Person> persons = new ArrayList();
+		List<Person> persons = new ArrayList<Person>();
 
 		for (Person eachPerson : persons) {
 
@@ -98,7 +98,7 @@ public class University {
 	}
 
 	public List<Student> getStudents() {
-		List<Student> students = new ArrayList();
+		List<Student> students = new ArrayList<Student>();
 
 		for (Person eachPerson : persons) {
 
@@ -111,7 +111,7 @@ public class University {
 	}
 
 	public List<Teacher> getTeacher() {
-		List<Teacher> teacher = new ArrayList();
+		List<Teacher> teacher = new ArrayList<Teacher>();
 
 		for (Person eachPerson : persons) {
 
