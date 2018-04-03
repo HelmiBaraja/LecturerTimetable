@@ -1,5 +1,8 @@
+import main.Course;
+import main.CourseModel;
 import main.University;
 import main.UniversityGui;
+import misc.Util;
 
 public class AppMain {
 
@@ -22,6 +25,18 @@ public class AppMain {
 		university.addStudent("SFirst3", "SLast3", "S3333", 3);
 		university.addStudent("SFirst4", "SLast4", "S4444", 2);
 
+	 	Course course  = new Course();
+	    course.addOfflineCourse(new CourseModel("Object Oriented Programming", Util.parseDate("2017-05-12"), 
+	    		Util.parseDate("2017-05-12"), "CK1923"));
+	    
+	    course.addOnlineCourse(new CourseModel("Introduction to Java", Util.parseDate("2017-05-12"), 
+	    		Util.parseDate("2017-05-12"), "CK3323"));
+	    
+	    course.addOnlineCourse(new CourseModel("Introduction to C", Util.parseDate("2017-04-12"), 
+	    		Util.parseDate("2017-06-12"), "CD233"));
+	    
+	    university.setCourse(course);
+	    
 		UniversityGui.startUniversity(university);
 	}
 
