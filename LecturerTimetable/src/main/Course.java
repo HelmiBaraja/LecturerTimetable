@@ -16,6 +16,31 @@ public class Course extends CourseBase{
 		this.coursesList = coursesList;
 	}
 
+	public CourseModel getCourseByID(int aId) {
+
+		CourseModel courseModel;
+		for (CourseModel eachCourse : coursesList) {
+
+			if (eachCourse.getId() == aId) {
+				courseModel = eachCourse;
+				return courseModel;
+			}
+		}
+
+		return null;
+
+	}
+	
+	public void deleteCourseByID(int aId) {
+
+		for (CourseModel eachCourse : coursesList) {
+
+			if (eachCourse.getId() == aId ) {
+				coursesList.remove(eachCourse);
+				return;
+			}
+		}
+	}
 	
 	@Override
 	public void addOnlineCourse(CourseModel courseModel) {

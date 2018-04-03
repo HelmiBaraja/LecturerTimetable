@@ -13,4 +13,15 @@ public class Util {
 	         return null;
 	     }
 	  }
+	
+	public static String getStringDate(Date date) {
+		SimpleDateFormat sdfr = new SimpleDateFormat("yyyy-MM-dd");
+		String dateString = null;
+		   try{
+			dateString = sdfr.format( date );
+		   }catch (Exception ex ){
+			System.out.println(ex);
+		   }
+	     return dateString;
+	  }
 }
