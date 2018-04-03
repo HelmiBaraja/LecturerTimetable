@@ -111,7 +111,7 @@ public class University {
 		return students;
 	}
 
-	public List<Teacher> getTeacher() {
+	public List<Teacher> getTeachers() {
 		List<Teacher> teacher = new ArrayList<Teacher>();
 
 		for (Person eachPerson : persons) {
