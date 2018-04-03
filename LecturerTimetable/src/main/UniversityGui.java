@@ -39,6 +39,9 @@ public class UniversityGui {
 	// method to start the university app
 	// ***********************************************************************************
 
+	/**
+	 * @wbp.parser.entryPoint
+	 */
 	public static void startUniversity(University aUniversity) {
 
 		SwingUtilities.invokeLater(new Runnable() {
@@ -111,6 +114,7 @@ public class UniversityGui {
 
 		}
 
+		
 	}
 
 	private void initializeStudentsTab() {
@@ -236,7 +240,15 @@ public class UniversityGui {
 
 		studentsTable = new JTable();
 		studentsTable.setModel(new DefaultTableModel(new Object[][] {},
-				new String[] { "ID", "First Name", "Last Name", "Student ID", "Semester" }));
+				new String[] { "ID", "First Name", "Last Name", "Student ID", "Semester" }) 
+		                    {private static final long serialVersionUID = 1L;
+
+			                 @Override
+			                 public boolean isCellEditable(int row, int column) {
+			                     // all cells false
+			                 return false;
+			                }
+		});
 
 		studentsTab.addComponentListener(new ComponentAdapter() {
 			@Override
