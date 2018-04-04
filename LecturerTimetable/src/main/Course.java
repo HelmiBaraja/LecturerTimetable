@@ -16,6 +16,16 @@ public class Course extends CourseBase{
 		this.coursesList = coursesList;
 	}
 
+	public String[] getCourseCodes()
+	{
+		String courseNames [] = new String[coursesList.size()];
+		for (int i =0 ; i<coursesList.size(); i++) {
+				courseNames[i]= coursesList.get(i).getCode();
+		}
+		
+		return courseNames;
+	}
+	
 	public CourseModel getCourseByID(int aId) {
 
 		CourseModel courseModel;

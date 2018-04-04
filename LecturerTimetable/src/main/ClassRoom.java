@@ -15,6 +15,16 @@ public class ClassRoom extends ClassRoomBase{
 		this.classList = classList;
 	}
 
+	public String[] getClassRooms()
+	{
+		String classRooms [] = new String[classList.size()];
+		for (int i =0 ; i<classList.size(); i++) {
+			classRooms[i]= classList.get(i).getRoomNo();
+		}
+		
+		return classRooms;
+	}
+	
 	private List<ClassRoomModel> classList = new ArrayList<>();
 
 	@Override

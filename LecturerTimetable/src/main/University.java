@@ -33,7 +33,7 @@ public class University {
 	// a taught course of the university
 	private Course course;
 	private ClassRoom classRoom;
-	
+	private Teaching teaching;
 	/**
 	 * Constructor of the university
 	 */
@@ -251,5 +251,14 @@ public class University {
 
 	public void setClassRoom(ClassRoom classRoom) {
 		this.classRoom = classRoom;
+	}
+	
+	public void setTeaching(Teaching teaching) {
+		this.teaching = teaching;
+	}
+	
+	public Teaching getTeaching()
+	{
+		return teaching;
 	}
 }

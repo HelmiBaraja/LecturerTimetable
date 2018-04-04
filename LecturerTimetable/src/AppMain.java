@@ -3,6 +3,8 @@ import main.ClassRoom;
 import main.ClassRoomModel;
 import main.Course;
 import main.CourseModel;
+import main.Teaching;
+import main.TeachingModel;
 import main.University;
 import main.UniversityGui;
 import main.ClassRoomModel.Size;
@@ -56,7 +58,17 @@ public class AppMain {
 	 	
 	    university.setClassRoom(classRoom);
 
-	 	
+	    Teaching teaching = new Teaching();
+//	    teaching.addTeaching(new TeachingModel("Vladimir", 
+//	    		course.getCourseByID(0).getCode(), 
+//	    		classRoom.getClassList().get(0).getRoomNo()));
+	    teaching.addTeaching(new TeachingModel("Vladimir", 
+	    		course.getCourseByID(1).getCode(), 
+	    		classRoom.getClassList().get(1).getRoomNo()));
+
+	    university.setTeaching(teaching);
+
+	    
 		UniversityGui.startUniversity(university);
 	}
 
