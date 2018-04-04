@@ -419,6 +419,10 @@ public class UniversityGui {
 		JButton studentBtnCreate = new JButton("create");
 		studentBtnCreate.setBounds(54, 380, 89, 23);
 		studentsTab.add(studentBtnCreate);
+		
+		JLabel lblNewLabel = new JLabel("(Semester must be > 0)");
+		lblNewLabel.setBounds(28, 269, 161, 14);
+		studentsTab.add(lblNewLabel);
 
 
 		// create an action listener in case the create button is
