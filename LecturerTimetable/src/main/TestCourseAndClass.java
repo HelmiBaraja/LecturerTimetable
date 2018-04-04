@@ -1,6 +1,6 @@
 package main;
 
-import main.ClassModel.Size;
+import main.ClassRoomModel.Size;
 import misc.Util;
 
 public class TestCourseAndClass {
@@ -20,11 +20,11 @@ public class TestCourseAndClass {
     course.printCourses();
     
     
- 	Class clss  = new Class();
+ 	ClassRoom clss  = new ClassRoom();
  	
- 	clss.addClassRoom(new ClassModel("13A", Size.BIG));
- 	clss.addClassRoom(new ClassModel("23B", Size.SMALL));
- 	clss.addClassRoom(new ClassModel("1B", Size.MEDIUM));
+ 	clss.addClassRoom(new ClassRoomModel("13A", Size.BIG));
+ 	clss.addClassRoom(new ClassRoomModel("23B", Size.SMALL));
+ 	clss.addClassRoom(new ClassRoomModel("1B", Size.MEDIUM));
 
  	
     clss.printClasses();

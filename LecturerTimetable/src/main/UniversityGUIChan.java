@@ -1,4 +1,4 @@
-package Main;
+package main;
 
 import javax.swing.JFrame;
 import javax.swing.JTabbedPane;
@@ -62,15 +62,15 @@ public class UniversityGUIChan {
 
 		model.getDataVector().removeAllElements();
 
-		List<Teacher> teachers = university.getTeacher();
+		//List<Teacher> teachers = university.getTeacher();
 
-		for (Teacher eachTeacher : teachers) {
-			Object[] row = { eachTeacher.getId(), eachTeacher.getFirstName(), eachTeacher.getLastName(),
-					eachTeacher.getExmplyeeId(), eachTeacher.getFunction() };
-
-			model.addRow(row);
-
-		}
+//		for (Teacher eachTeacher : teachers) {
+//			Object[] row = { eachTeacher.getId(), eachTeacher.getFirstName(), eachTeacher.getLastName(),
+//					eachTeacher.getExmplyeeId(), eachTeacher.getFunction() };
+//
+//			model.addRow(row);
+//
+//		}
 
 	}
 

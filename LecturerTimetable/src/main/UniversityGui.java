@@ -347,7 +347,9 @@ public class UniversityGui {
 		
 		CourseTab courseTab = new CourseTab();
 		courseTab.initializeCourseTab(tabbedPane, university);
-		
+	
+		ClassRoomTab clssTab = new ClassRoomTab();
+		clssTab.initializeClassTab(tabbedPane, university);
 	}
 
 	// ***********************************************************************************

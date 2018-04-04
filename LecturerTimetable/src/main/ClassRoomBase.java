@@ -2,10 +2,10 @@ package main;
 
 
 interface ClassRoomInterface{
-	void addClassRoom(ClassModel classModel);
+	void addClassRoom(ClassRoomModel classModel);
 }
 
 	//put abstract since we don't need to override interface method
 	//empty abstract
-public abstract class ClassBase implements ClassRoomInterface{}
+public abstract class ClassRoomBase implements ClassRoomInterface{}
 

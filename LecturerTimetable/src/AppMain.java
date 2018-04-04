@@ -1,8 +1,11 @@
 import exceptions.WrongActualParameterException;
+import main.ClassRoom;
+import main.ClassRoomModel;
 import main.Course;
 import main.CourseModel;
 import main.University;
 import main.UniversityGui;
+import main.ClassRoomModel.Size;
 import misc.Util;
 
 public class AppMain {
@@ -44,6 +47,16 @@ public class AppMain {
 	    
 	    university.setCourse(course);
 	    
+	    
+	    ClassRoom classRoom  = new ClassRoom();
+	 	
+	    classRoom.addClassRoom(new ClassRoomModel("13A", Size.BIG));
+	    classRoom.addClassRoom(new ClassRoomModel("23B", Size.SMALL));
+	    classRoom.addClassRoom(new ClassRoomModel("1B", Size.MEDIUM));
+	 	
+	    university.setClassRoom(classRoom);
+
+	 	
 		UniversityGui.startUniversity(university);
 	}
 

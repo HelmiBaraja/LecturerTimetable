@@ -32,6 +32,7 @@ public class University {
 	
 	// a taught course of the university
 	private Course course;
+	private ClassRoom classRoom;
 	
 	/**
 	 * Constructor of the university
@@ -242,5 +243,13 @@ public class University {
 
 	public void setCourse(Course course) {
 		this.course = course;
+	}
+
+	public ClassRoom getClassRoom() {
+		return classRoom;
+	}
+
+	public void setClassRoom(ClassRoom classRoom) {
+		this.classRoom = classRoom;
 	}
 }
