@@ -8,8 +8,8 @@ import exceptions.WrongActualParameterException;
 
 /**
  * @author ansgar.goeb 
- * (and contribution from Chan and Helmi to
- *  implemented their project-work)
+ * (contributions from Chan and Helmi 
+ *  -> Course other tabs than University, Students)
  *  
  *   The University class represents the whole university.
  *   Mainly it is used as a coordinating object for all
@@ -74,13 +74,13 @@ public class University {
 		// call the constructor of a student object
 		Student student = new Student(aFirstName, aLastName, aStudentId, aSemester);
 		
-		// add the student ot the list of persons
+		// add the student to the list of persons
 		persons.add(student);
 	}
 
 	/**
 	 * Adds a teacher to the list of persons.
-	 * (not exception will be thrown not to damage Chan's program) 
+	 * (no exception will be thrown not to damage Chan's program) 
 	 */
 	public void addTeacher(String aFirstName, String aLastName, String aEmplyeeId, String aFunction) {
 		
@@ -120,7 +120,7 @@ public class University {
  
 	/**
 	 *  Deletes a teacher from the list of persons.
-	 * (not exception will be thrown not to damage Chan's program) 
+	 * (no exception will be thrown not to damage Chan's program) 
 	 */
 	public void deleteTeacher(String aId) {
 
@@ -139,6 +139,10 @@ public class University {
 		}
 	}
 
+	/**
+	 * returns a list of all persons, delivers an empty
+	 * list when no persons are available
+	 */
 	public List<Person> getPersons() {
 		List<Person> persons = new ArrayList<Person>();
 
@@ -149,6 +153,11 @@ public class University {
 		return persons;
 	}
 
+	/**
+	 * returns a student object for the given ID
+	 * an exception is raised when the student for the given
+	 * ID does not exist 
+	 */
 	public Student getStudent(String aId) throws StudentNotFoundException {
 
 		Student student;
@@ -163,6 +172,11 @@ public class University {
 		throw new StudentNotFoundException("Student does not exist");
 	}
 
+	/**
+	 * returns a teacher object for the given ID
+	 * no exception is raised when the teacher for the given
+	 * ID does not exist  
+	 */
 	public Teacher getTeacher(String aId) {
 
 		Teacher teacher;
@@ -176,6 +190,10 @@ public class University {
 		return null;
 	}
 
+	/**
+	 * returns a list of students - in case there are
+	 * no students an empty list is returned
+	 */
 	public List<Student> getStudents() {
 		List<Student> students = new ArrayList<Student>();
 
@@ -189,6 +207,10 @@ public class University {
 		return students;
 	}
 
+	/**
+	 * returns a list of teachers - in case there are
+	 * no teachers an empty list is returned
+	 */
 	public List<Teacher> getTeachers() {
 		List<Teacher> teacher = new ArrayList<Teacher>();
 
@@ -202,6 +224,10 @@ public class University {
 		return teacher;
 	}
 
+	/** 
+	 * prints a list of all persons to the standard
+	 * output
+	 */
 	public void printPersons() {
 		for (Person eachPerson : persons) {
 
@@ -210,6 +236,10 @@ public class University {
 		}
 	}
 
+	/**
+	 * prints a list of students to the standard
+	 * output
+	 */
 	public void printStudents() {
 		for (Person eachPerson : persons) {
 
@@ -219,6 +249,10 @@ public class University {
 		}
 	}
 
+	/**
+	 * prints a list of teachers to the standard
+	 * output
+	 */
 	public void printTeacher() {
 
 		for (Person eachPerson : persons) {
@@ -229,26 +263,44 @@ public class University {
 		}
 	}
 
+	/**
+	 * returns the name of the university
+	 */
 	public String getName() {
 		return name;
 	}
 
+	/**
+	 * sets the name of the university
+	 */
 	public void setName(String name) {
 		this.name = name;
 	}
 
+	/**
+	 * returns a course object
+	 */
 	public Course getCourses() {
 		return course;
 	}
 
+	/**
+	 * setter for the course 
+	 */
 	public void setCourse(Course course) {
 		this.course = course;
 	}
 
+	/**
+	 * returns a ClassRoom object
+	 */
 	public ClassRoom getClassRoom() {
 		return classRoom;
 	}
 
+	/**
+	 *  setter for the ClassRoom
+	 */
 	public void setClassRoom(ClassRoom classRoom) {
 		this.classRoom = classRoom;
 	}
