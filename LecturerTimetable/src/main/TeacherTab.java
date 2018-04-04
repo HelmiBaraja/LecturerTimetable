@@ -32,7 +32,7 @@ public class TeacherTab {
 	JTextField employeeIDField; 
 	JTextField titleField;
 	JTable teacherTable;
-	
+	int selectedIndex;
 	public void initializeTeacherTab(JTabbedPane tabbedPane, University university)
 	{
 	this.university=university;
@@ -185,8 +185,8 @@ public class TeacherTab {
 		teacherTable.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseReleased(MouseEvent e) {
-				int row = teacherTable.getSelectedRow();
-				updateTeacherDetail( (String) teacherTable.getValueAt(row, 0));
+				selectedIndex = teacherTable.getSelectedRow();
+				updateTeacherDetail( (String) teacherTable.getValueAt(selectedIndex, 0));
 			}
 		});
 		
