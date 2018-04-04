@@ -545,6 +545,9 @@ public class UniversityGui {
 		// initializes all objects for the university tab
 		initializeUniversityTab();
 		
+		TeacherTab teacherTab = new TeacherTab();
+		teacherTab.initializeTeacherTab(tabbedPane, university);
+		
 		// initializes all objects for the students tab
 		initializeStudentsTab();
 		
