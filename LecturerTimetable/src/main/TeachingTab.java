@@ -27,6 +27,7 @@ public class TeachingTab {
 	JComboBox<String> teacherCombo;
 	JComboBox<String> courseCombo;
 	JComboBox<String> classRoomCombo;
+	int selectedIndex;
 
 	public void initializeTeachingTab(JTabbedPane tabbedPane, University university)
 	{
@@ -83,7 +84,14 @@ public class TeachingTab {
 		JButton courseBtnSave = new JButton("save");
 		courseBtnSave.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				
+				if (!teachingIDField.getText().isEmpty()) {
+					TeachingModel teachingModel = university.getTeaching().getTeachinglist().get(selectedIndex);
+					teachingModel.setTeacherName((String) teacherCombo.getSelectedItem());
+					teachingModel.setCourseCode((String)courseCombo.getSelectedItem());
+					teachingModel.setClassRoom((String)classRoomCombo.getSelectedItem());
+
+										
+				}
 				clearFields();
 				fillCourseTable();
 			}
@@ -129,8 +137,8 @@ public class TeachingTab {
 		teachingTable.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseReleased(MouseEvent e) {
-				int row = teachingTable.getSelectedRow();
-				updateCourseDetail( (int) teachingTable.getValueAt(row, 0) -1);
+				selectedIndex= teachingTable.getSelectedRow();
+				updateCourseDetail( (int) teachingTable.getValueAt(selectedIndex, 0) - 1 );
 			}
 		});
 		
