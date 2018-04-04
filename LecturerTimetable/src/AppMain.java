@@ -21,16 +21,13 @@ public class AppMain {
 		university.addPerson("First3", "Last3");
 		university.addPerson("First4", "Last4");
 
-		university.addTeacher("Vladimir", "Vladimir", "1213", "Prof. IT");
-		university.addTeacher("Ansgar", "Goeb", "2222", "Prof. Law");
-		university.addTeacher("Helmi", "Hasan", "3333", "Prof. Medicine");
-		university.addTeacher("Chan", "Chan", "4444", "Prof. Physics");
+		university.addTeacher("Vladimir", "Gubanov", "1213", "Prof. IT");
+
 
 		try {
-			university.addStudent("SFirst1", "SLast1", "S1111", 1);
-			university.addStudent("SFirst2", "SLast2", "S2222", 2);
-			university.addStudent("SFirst3", "SLast3", "S3333", 3);
-			university.addStudent("SFirst4", "SLast4", "S4444", 2);
+			university.addStudent("Ansgar", "Gaib", "S1111", 1);
+			university.addStudent("Helmi", "Hasan", "S2222", 2);
+			university.addStudent("Chan", "Yue", "S3333", 3);
 			
 		} catch (WrongActualParameterException e) {
 			// TODO Auto-generated catch block
@@ -59,9 +56,6 @@ public class AppMain {
 	    university.setClassRoom(classRoom);
 
 	    Teaching teaching = new Teaching();
-//	    teaching.addTeaching(new TeachingModel("Vladimir", 
-//	    		course.getCourseByID(0).getCode(), 
-//	    		classRoom.getClassList().get(0).getRoomNo()));
 	    teaching.addTeaching(new TeachingModel("Vladimir", 
 	    		course.getCourseByID(1).getCode(), 
 	    		classRoom.getClassList().get(1).getRoomNo()));
