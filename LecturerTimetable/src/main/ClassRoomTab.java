@@ -74,8 +74,8 @@ public class ClassRoomTab {
 		classRoomTab.add(classSizeCombo);
 
 		
-		JButton courseBtnSave = new JButton("save");
-		courseBtnSave.addActionListener(new ActionListener() {
+		JButton classBtnSave = new JButton("save");
+		classBtnSave.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				if (!classRoomIDField.getText().isEmpty()) {
 					ClassRoomModel classModel = university.getClassRoom().getClassList().get(Integer.parseInt(classRoomIDField.getText().toString()));
@@ -88,11 +88,11 @@ public class ClassRoomTab {
 				fillCourseTable();
 			}
 		});
-		courseBtnSave.setBounds(54, 312, 89, 23);
-		classRoomTab.add(courseBtnSave);
+		classBtnSave.setBounds(54, 312, 89, 23);
+		classRoomTab.add(classBtnSave);
 
-		JButton courseBtnDelete = new JButton("delete");
-		courseBtnDelete.addActionListener(new ActionListener() {
+		JButton classBtnDelete = new JButton("delete");
+		classBtnDelete.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				university.getClassRoom().deleteClassRoomByID(Integer.parseInt(classRoomIDField.getText().toString()));
 
@@ -101,11 +101,11 @@ public class ClassRoomTab {
 				fillCourseTable();
 			}
 		});
-		courseBtnDelete.setBounds(54, 346, 89, 23);
-		classRoomTab.add(courseBtnDelete);
+		classBtnDelete.setBounds(54, 346, 89, 23);
+		classRoomTab.add(classBtnDelete);
 
-		JButton courseBtnCreate = new JButton("create");
-		courseBtnCreate.addActionListener(new ActionListener() {
+		JButton classBtnCreate = new JButton("create");
+		classBtnCreate.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
 				ClassRoomModel classModel = new ClassRoomModel(classRoomIDField.getText().toString(), 
@@ -117,8 +117,8 @@ public class ClassRoomTab {
 				fillCourseTable();
 			}
 		});
-		courseBtnCreate.setBounds(54, 380, 89, 23);
-		classRoomTab.add(courseBtnCreate);
+		classBtnCreate.setBounds(54, 380, 89, 23);
+		classRoomTab.add(classBtnCreate);
 		
 		
 		classRoomTable = new JTable();
@@ -164,7 +164,6 @@ public class ClassRoomTab {
 		model.getDataVector().removeAllElements();
 
 		List<ClassRoomModel> classRoom = university.getClassRoom().getClassList();
-		System.out.println(classRoom.size()+"");
 		for (ClassRoomModel eachClassRoom : classRoom) {
 			Object[] row = { eachClassRoom.getId(), eachClassRoom.getRoomNo(), eachClassRoom.getSizeString() };
 
