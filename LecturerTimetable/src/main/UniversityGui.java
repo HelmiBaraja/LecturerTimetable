@@ -25,14 +25,37 @@ import exceptions.WrongActualParameterException;
 
 /**
  * @author ansgar.goeb
+ * 
+ * This Class is the entry point for the user-interface
+ * of the university. The interface shows one form with
+ * several tabs representing:
+ * 
+ * - University
+ * - Students
+ * - Courses
+ * - Class Rooms
  */
 public class UniversityGui {
 
+	// the main frame of the application
 	private JFrame frame;
+	
+	// the frame to implement the tabbed-view
 	private JTabbedPane tabbedPane;
+	
+	// reference to the object model of the university
+	// university acts as a coordinating object
 	private University university;
+	
+	// the name of the university
 	private JTextField nameOfUniversity;
+	
+	// an info-field located at the right top
+	// of most tabs
 	private JTextField infoField;
+	
+	// the following variable a variables that are used
+	// in the tab for showing, inserting, deleting students
 	private JTable studentsTable;
 	private JTextField studentPersonId;
 	private JTextField studentFirstName;
@@ -45,15 +68,19 @@ public class UniversityGui {
 	// ***********************************************************************************
 
 	/**
-	 * @wbp.parser.entryPoint
+	 * static main class to start the user interface
+	 * it assigns the university as a coordinating class
 	 */
 	public static void startUniversity(University aUniversity) {
 
 		SwingUtilities.invokeLater(new Runnable() {
 			public void run() {
 
+				// create the windows showing the application
 				UniversityGui window = new UniversityGui();
 				window.setUniversity(aUniversity);
+				
+				// initializes the different parts
 				window.initialize();
 				window.frame.setVisible(true);
 			}
@@ -64,34 +91,56 @@ public class UniversityGui {
 	// methods in relation to the university tab
 	// ***********************************************************************************
 
+	/**
+	 * initializes the tab for showing information about the
+	 * university
+	 */
 	private void initializeUniversityTab() {
+		
+		// create a JPanel and add it to the main tapped pain
 		JPanel universityTab = new JPanel();
 		tabbedPane.addTab("University", null, universityTab, null);
 		universityTab.setLayout(null);
 
+		// create a field showing the name of the university 
 		nameOfUniversity = new JTextField();
 		nameOfUniversity.setBounds(58, 121, 321, 29);
 		universityTab.add(nameOfUniversity);
 		nameOfUniversity.setColumns(10);
 
+		// adding a label to the field 'name of university'
 		JLabel lblNameOfThe = new JLabel("Name of the University");
 		lblNameOfThe.setBounds(58, 95, 133, 20);
 		universityTab.add(lblNameOfThe);
 
+		// adding a button to save the changed name of the university
 		JButton updateUniversity = new JButton("Update");
 
+		// action listener for the update-button 'name of the university'
 		updateUniversity.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
+				
+				// setting the content of the text field to university 
+				// object
 				university.setName(nameOfUniversity.getText());
 			}
 		});
 
+		// setting the size of the button
 		updateUniversity.setBounds(58, 176, 89, 23);
+
+		// adding the button to the university frame
 		universityTab.add(updateUniversity);
 
+		// set the text of the field 'name of university' to the
+		// name of the university (from the university object)
 		setUniversityName();
 
+		// add a listener to the tab 'university' - every time 
+		// when it is shown, the name of the university is 
+		// automatically updated
 		universityTab.addComponentListener(new ComponentAdapter() {
+			
 			@Override
 			public void componentShown(ComponentEvent e) {
 				setUniversityName();
@@ -99,27 +148,46 @@ public class UniversityGui {
 		});
 	}
 
+	/**
+	 * sets the text field of the university
+	 * (from the university object)
+	 */
+	private void setUniversityName() {
+
+		nameOfUniversity.setText(university.getName());
+	}
+
+	
 	// ***********************************************************************************
 	// methods in relation to the students tab
 	// ***********************************************************************************
 
+	/**
+	 * method to fill the JTable of students in the students tab
+	 * all students are loaded from the object model and inserted
+	 * into the JTable 
+	 */
 	private void fillStudentsTable() {
 
+		// get the default table model from studentsTable (JTable)
 		DefaultTableModel model = (DefaultTableModel) studentsTable.getModel();
 
+		// remove all existing entry
 		model.getDataVector().removeAllElements();
 
+		// get the list of the students from the object model
 		List<Student> students = university.getStudents();
 
+		// loop through all students and add the students one by one to the JTable
 		for (Student eachStudent : students) {
+
+			// create an array of one object for one record in the JTable
 			Object[] row = { eachStudent.getId(), eachStudent.getFirstName(), eachStudent.getLastName(),
 					eachStudent.getStudentId(), eachStudent.getSemester() };
 
+			// add the row to the JTable
 			model.addRow(row);
-
 		}
-
-		
 	}
 
 	private void initializeStudentsTab() {
@@ -333,21 +401,32 @@ public class UniversityGui {
 	// ***********************************************************************************
 	private void initialize() {
 
+		// create the main JFrame
 		frame = new JFrame();
 		frame.setBounds(100, 100, 792, 514);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		
+		// use the standard layout
 		frame.getContentPane().setLayout(null);
 
+		// creates the tabbed pain as a container for other frames
 		tabbedPane = new JTabbedPane(JTabbedPane.TOP);
 		tabbedPane.setBounds(10, 11, 756, 453);
 		frame.getContentPane().add(tabbedPane);
 
+		// initializes all objects for the university tab
 		initializeUniversityTab();
+		
+		// initializes all objects for the students tab
 		initializeStudentsTab();
 		
+		// creates the course object and initializes
+		// the tab showing the courses
 		CourseTab courseTab = new CourseTab();
 		courseTab.initializeCourseTab(tabbedPane, university);
 	
+		// creates the ClassRoomTab and initializes
+		// the tab showing the classrooms 
 		ClassRoomTab clssTab = new ClassRoomTab();
 		clssTab.initializeClassTab(tabbedPane, university);
 	}
@@ -356,16 +435,15 @@ public class UniversityGui {
 	// common methods
 	// ***********************************************************************************
 
+	// standard constructor 
 	public UniversityGui() {
 	}
 
-	private void setUniversityName() {
-
-		nameOfUniversity.setText(university.getName());
-	}
-
+	/**
+	 * setter for the university as entry point to the
+	 * university objects
+	 */
 	public void setUniversity(University university) {
 		this.university = university;
 	}
-
 }
