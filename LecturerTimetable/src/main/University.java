@@ -182,7 +182,7 @@ public class University {
 		Teacher teacher;
 		for (Person eachPerson : persons) {
 
-			if (eachPerson instanceof Student && eachPerson.getId().equals(aId)) {
+			if (eachPerson instanceof Teacher && eachPerson.getId().equals(aId)) {
 				teacher = (Teacher) eachPerson;
 				return teacher;
 			}

@@ -10,8 +10,6 @@ import java.util.List;
  */
 public class Teacher extends Person {
 
-	private List<CourseModel> teacherList = new ArrayList<>();
-
 	// staff ID of the teacher
 	private String exmplyeeId;
 	
@@ -63,13 +61,5 @@ public class Teacher extends Person {
 	 */
 	public void setFunction(String function) {
 		this.function = function;
-	}
-
-	public List<CourseModel> getTeacherList() {
-		return teacherList;
-	}
-
-	public void setTeacherList(List<CourseModel> teacherList) {
-		this.teacherList = teacherList;
 	}
 }

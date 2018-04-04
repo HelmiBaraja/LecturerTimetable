@@ -21,10 +21,10 @@ public class AppMain {
 		university.addPerson("First3", "Last3");
 		university.addPerson("First4", "Last4");
 
-		university.addTeacher("TFirst1", "TLast1", "1111", "Prof. IT");
-		university.addTeacher("TFirst2", "TLast2", "2222", "Prof. Law");
-		university.addTeacher("TFirst3", "TLast3", "3333", "Prof. Medicine");
-		university.addTeacher("TFirst4", "TLast4", "4444", "Prof. Physics");
+		university.addTeacher("Vladimir", "Vladimir", "1213", "Prof. IT");
+		university.addTeacher("Ansgar", "Goeb", "2222", "Prof. Law");
+		university.addTeacher("Helmi", "Hasan", "3333", "Prof. Medicine");
+		university.addTeacher("Chan", "Chan", "4444", "Prof. Physics");
 
 		try {
 			university.addStudent("SFirst1", "SLast1", "S1111", 1);
