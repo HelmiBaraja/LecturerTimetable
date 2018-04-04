@@ -313,4 +313,14 @@ public class University {
 	{
 		return teaching;
 	}
+	
+	public String[] getTeacherArray()
+	{
+		String teacherArray [] = new String[getTeachers().size()];
+		for (int i =0 ; i<getTeachers().size(); i++) {
+			teacherArray[i]= getTeachers().get(i).getFirstName();
+		}
+		
+		return teacherArray;
+	}
 }

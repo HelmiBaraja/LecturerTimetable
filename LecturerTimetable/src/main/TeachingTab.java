@@ -60,7 +60,7 @@ public class TeachingTab {
 		teacherLabel.setBounds(28, 108, 86, 14);
 		teachingTab.add(teacherLabel);
 		
-		teacherCombo = new JComboBox<String>();
+		teacherCombo = new JComboBox<String>(university.getTeacherArray());
 		teacherCombo.setBounds(28, 122, 161, 20);
 		teachingTab.add(teacherCombo);
 		
